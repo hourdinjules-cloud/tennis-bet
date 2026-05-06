@@ -1,0 +1,33 @@
+:root { --gold: #FFD700; --dark: #000000; --card: #1A1A1A; }
+body { background: var(--dark); color: white; font-family: sans-serif; margin: 0; padding-bottom: 80px; }
+
+.hidden { display: none !important; }
+.logo-gold { color: var(--gold); font-family: 'Impact', sans-serif; letter-spacing: 2px; }
+
+header { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #333; }
+.wallet { background: var(--gold); color: black; padding: 5px 15px; border-radius: 20px; font-weight: bold; }
+
+/* Home Components */
+.roi-card { background: linear-gradient(45deg, #1A1A1A, #333); border: 2px solid var(--gold); margin: 15px; padding: 15px; border-radius: 15px; text-align: center; }
+.stats-row { display: flex; justify-content: space-around; margin: 10px; }
+.stat-box { background: var(--card); padding: 10px; border-radius: 8px; width: 45%; text-align: center; font-size: 0.8rem; }
+
+/* Match Cards */
+.match-card { background: var(--card); margin: 15px; padding: 15px; border-radius: 12px; border-left: 4px solid var(--gold); }
+.odds-btn { width: 100%; background: #262626; border: 1px solid #444; color: white; padding: 12px; margin: 5px 0; border-radius: 5px; font-weight: bold; }
+
+/* Modal Pari */
+.modal { position: fixed; top:0; left:0; width: 100%; height:100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 2000; }
+.modal-content { background: var(--card); padding: 25px; border-radius: 15px; width: 80%; text-align: center; }
+.bet-selector { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+.bet-selector button { background: var(--gold); border: none; padding: 10px 20px; font-size: 1.5rem; border-radius: 5px; }
+.bet-selector input { background: none; border: none; color: white; width: 60px; text-align: center; font-size: 1.5rem; }
+
+/* Nav Bar */
+nav { position: fixed; bottom: 0; width: 100%; background: #121212; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #333; }
+.nav-item { color: #888; text-align: center; font-size: 0.7rem; cursor: pointer; }
+.nav-item.active { color: var(--gold); }
+
+/* Buttons */
+button { cursor: pointer; }
+.confirm-btn { background: var(--gold); width: 100%; padding: 12px; border: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
