@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TennisBet</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- LOGIN PAGE -->
+    <div id="login-page" class="page active">
+        <div class="login-container">
+            <h1 class="logo-gold">TENNISBET</h1>
+            <input type="text" id="login-user" placeholder="Prénom">
+            <input type="password" id="login-pass" placeholder="Mot de passe">
+            <button onclick="login()">SE CONNECTER</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="main-app" class="hidden">
+        <header>
+            <div class="logo-gold">TENNISBET</div>
+            <div class="wallet"><span id="u-name"></span> | <span id="u-coins">0</span> 🪙</div>
+        </header>
+
+        <!-- PAGE ACCUEIL (ROI DE LA PERF / CLUBS) -->
+        <div id="home-page" class="sub-page">
+            <div class="roi-card">
+                <h3>👑 ROI DE LA PERF</h3>
+                <div id="roi-content">Chargement...</div>
+            </div>
+            <div class="stats-row">
+                <div class="stat-box">🔥 TOP : <span id="top-day">-</span></div>
+                <div class="stat-box">❄️ FLOP : <span id="flop-day">-</span></div>
+            </div>
+            <div class="club-war">
+                <h3>⚔️ GUERRE DES CLUBS</h3>
+                <div id="club-scores"></div>
+            </div>
+        </div>
+
+        <!-- PAGE PARIS -->
+        <div id="bet-page" class="sub-page hidden">
+            <h3>🎾 MATCHS DU JOUR</h3>
+            <div id="matches-list"></div>
+        </div>
+
+        <!-- PAGE CLASSEMENT -->
+        <div id="rank-page" class="sub-page hidden">
+            <h3>🏆 LEADERBOARD COINS</h3>
+            <div id="leaderboard"></div>
+        </div>
+
+        <!-- PAGE ADMIN (CODÉE) -->
+        <div id="admin-page" class="sub-page hidden">
+            <h3>⚙️ PANEL ADMIN</h3>
+            <div class="admin-form">
+                <input type="text" id="admin-token" placeholder="Code Secret Admin">
+                <button onclick="checkAdmin()">Accéder</button>
+                <div id="admin-controls" class="hidden">
+                    <hr>
+                    <input type="text" id="m-tournoi" placeholder="Nom Tournoi">
+                    <input type="text" id="m-j1" placeholder="Joueur 1">
+                    <input type="text" id="m-j2" placeholder="Joueur 2">
+                    <button onclick="createMatch()">PUBLIER MATCH</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL DE PARI (STYLE WINAMAX) -->
+        <div id="bet-modal" class="modal hidden">
+            <div class="modal-content">
+                <h4 id="bet-target">Parier sur Jules</h4>
+                <div class="bet-selector">
+                    <button onclick="updateMise(-1)">-</button>
+                    <input type="number" id="mise-val" value="1" readonly>
+                    <button onclick="updateMise(1)">+</button>
+                </div>
+                <button class="confirm-btn" onclick="confirmBet()">CONFIRMER LE PARI</button>
+                <button class="cancel-btn" onclick="closeModal()">ANNULER</button>
+            </div>
+        </div>
+
+        <!-- NAV BAR BASSE -->
+        <nav>
+            <div class="nav-item active" onclick="nav('home')">🏠<br>ACCUEIL</div>
+            <div class="nav-item" onclick="nav('bet')">🎾<br>PARIER</div>
+            <div class="nav-item" onclick="nav('rank')">🏆<br>COINS</div>
+            <div class="nav-item" onclick="nav('admin')">⚙️<br>ADMIN</div>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
